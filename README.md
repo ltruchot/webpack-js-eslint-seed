@@ -36,4 +36,4 @@ _Example: if an image is in `./public/assets/images/logo.png` reference it as `<
 
 Those standards are overidden for few rules (windows project, 80 chars per line, etc). You can remove/change thoses rules or add new in this `.eslintrc.js`.
 
-_Example change 'linebreak-style': ['error', 'windows'] to 'linebreak-style': ['error', 'unix']_
+_Example change `'linebreak-style': ['error', 'windows']` to `'linebreak-style': ['error', 'unix']`_
