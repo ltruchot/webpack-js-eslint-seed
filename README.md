@@ -1,16 +1,20 @@
 # Webpack Javascript ESLint Seed
 
-## An empty project to begin JS coding
+## An empty project to begin pure JavaScript front-end coding out of the box
 
-Last updated: Juny 2019
+NPM Last updated: June 2019
 
-A clean webpack javascript eslint seed, with JavaScript Airbnb rules.
+This is a clean webpack-javascript-eslint seed, with Babel for ES6+ and Airbnb for Lint rules.
 
 `npm install` at your first use, then
 
 `npm start` to develop your application
 
 `npm run build` to bundle your application. When it's done, deliver your `dist` folder: it contains anything needed.
+
+## index.html
+
+`index.js` is the entry point for your ES6+ JavaScript. You can `import` anything you want here.
 
 ## index.html
 

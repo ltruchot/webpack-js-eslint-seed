@@ -1,7 +1,7 @@
 {
   "name": "webpack-js-eslint-seed",
-  "version": "1.0.0",
-  "description": "A clean webpack-javascript-eslint seed, with ESlint Airbnb rules.",
+  "version": "1.0.1",
+  "description": "An empty project to begin pure JavaScript front-end coding out of the box.",
   "engines": {
     "node": "^10.0.0",
     "npm": "^6.0.0"
