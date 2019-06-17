@@ -29,3 +29,11 @@ Nevertheless, you can change what you want in its template `./public/index.html`
 Put your static folders/files in `./public`. Webpack will raw-copy them in your final dist, never breaking your relative links.
 
 _Example: if an image is in `./public/assets/images/logo.png` reference it as `<img src="assets/images/logo.png">` in your codebase._
+
+## Change ESLint in the way you want
+
+`.eslintrc.js` follow Airbnb strict and helpful rules for deliver good quality/well formed code.
+
+Those standards are overidden for few rules (windows project, 80 chars per line, etc). You can remove/change thoses rules or add new in this `.eslintrc.js`.
+
+_Example change 'linebreak-style': ['error', 'windows'] to 'linebreak-style': ['error', 'unix']_
