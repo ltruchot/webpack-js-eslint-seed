@@ -16,7 +16,7 @@ This is a clean and classic webpack-javascript-eslint seed, with Babel for ES6+ 
 
 `./src/index.js` is the entry point for your ES6+ JavaScript. Scaffold your JS app sources in `./src` and import/export what you need, with `./src` as implicit root.
 
-_Example: if function `add` is exported in file `./src/heplers/example.js` import it as `import { add } from "./helpers/example"` in `index.js`._
+_Example: if function `add` is exported in file `./src/helpers/example.js` import it as `import { add } from "./helpers/example"` in `index.js`._
 
 ## index.html
 
