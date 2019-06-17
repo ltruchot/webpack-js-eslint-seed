@@ -12,9 +12,9 @@ This is a clean webpack-javascript-eslint seed, with Babel for ES6+ and Airbnb f
 
 `npm run build` to bundle your application. When it's done, deliver your `dist` folder: it contains anything needed.
 
-## index.html
+## index.js and other sources
 
-`index.js` is the entry point for your ES6+ JavaScript. You can `import` anything you want here.
+`./src/index.js` is the entry point for your ES6+ JavaScript. Scaffold your JS app sources in `./src` and import/export what you need.
 
 ## index.html
 
