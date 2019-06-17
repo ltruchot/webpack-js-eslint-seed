@@ -1,7 +1,7 @@
 module.exports = {
   env: {
     browser: true,
-    es6: true
+    es6: true,
   },
   extends: 'airbnb-base',
   globals: {
@@ -25,5 +25,6 @@ module.exports = {
         ignoreRegExpLiterals: true,
       },
     ],
+    'import/prefer-default-export': 0,
   },
 };
