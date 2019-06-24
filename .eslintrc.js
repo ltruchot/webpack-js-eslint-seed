@@ -13,6 +13,9 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
+    'no-alert': 0,
+    'no-plusplus': 0,
+    'vars-on-top': 0,
     'func-names': 0,
     'prefer-arrow-callback': 0,
     'prefer-template': 0,
