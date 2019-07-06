@@ -13,6 +13,8 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
+    'no-restricted-syntax': 0,
+    'no-console': 0,
     'no-alert': 0,
     'no-plusplus': 0,
     'vars-on-top': 0,
