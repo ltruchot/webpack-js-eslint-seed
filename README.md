@@ -2,9 +2,11 @@
 
 ## An empty project to begin pure JavaScript front-end coding out of the box
 
-NPM Last updated: June 2019
+NPM Last updated: August 2019
 
 This is a clean and classic webpack-javascript-eslint seed, with Babel for ES6+ and Airbnb for Lint rules.
+
+This branch contains sass + file loader as well
 
 `npm install` at your first use, then
 

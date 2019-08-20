@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
@@ -13,6 +14,7 @@ module.exports = {
   },
 
   plugins: [
+    new CleanWebpackPlugin(),
     new webpack.ProgressPlugin(),
     new CopyPlugin([
       { from: './public', to: './', ignore: './public/index.html' },
@@ -28,18 +30,18 @@ module.exports = {
         test: /\.scss$/,
         use: [
           'style-loader', // creates style nodes from JS strings
-          'css-loader', // translates CSS into CommonJS
+          { 
+            loader: 'css-loader', 
+            options: { url: false }
+          }, // translates CSS into CommonJS
           'sass-loader' // compiles Sass to CSS, using Node Sass by default
         ],
       },
       {
         // Now we apply rule for images
         test: /\.(png|jpe?g|gif|svg)$/,
-        loader: "file-loader",
-        options: {
-          outputPath: 'assets/images',
-        },
-      },      
+        loader: "file-loader"
+      },     
       {
          test: /\.(woff|woff2|eot|ttf|otf)$/,
          use: 'file-loader'
