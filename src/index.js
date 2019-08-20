@@ -1,3 +1,4 @@
-import "./styles.scss"
-import { test } from "./app/main"
-console.log(test);
+import "./styles.scss"; // entry poin for styles
+import { test } from "./app/main" // example of an ES6 import
+
+console.log(test); // should display "it works!" in console on launch

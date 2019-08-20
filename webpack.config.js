@@ -35,7 +35,14 @@ module.exports = {
       {
         // Now we apply rule for images
         test: /\.(png|jpe?g|gif|svg)$/,
-        loader: "file-loader"
+        loader: "file-loader",
+        options: {
+          outputPath: 'assets/images',
+        },
+      },      
+      {
+         test: /\.(woff|woff2|eot|ttf|otf)$/,
+         use: 'file-loader'
       },
       {
         test: /.(js|jsx)$/,
