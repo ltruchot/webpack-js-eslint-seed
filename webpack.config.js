@@ -33,6 +33,11 @@ module.exports = {
         ],
       },
       {
+        // Now we apply rule for images
+        test: /\.(png|jpe?g|gif|svg)$/,
+        loader: "file-loader"
+      },
+      {
         test: /.(js|jsx)$/,
         include: [path.resolve(__dirname, 'src')],
         loader: 'babel-loader',
