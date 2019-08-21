@@ -18,7 +18,7 @@ module.exports = {
     new CleanWebpackPlugin(),
     new webpack.ProgressPlugin(),
     new CopyPlugin([
-      { from: './public', to: './', ignore: './public/index.html' },
+      { from: './public', to: './', ignore: ['./public/index.html', "pages/**/*"] },
     ]),
     new HtmlWebpackPlugin({
       filename: "index.html",
