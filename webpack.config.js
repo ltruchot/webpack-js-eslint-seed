@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
+const fs = require('fs');
 
 module.exports = {
   mode: 'development',
@@ -20,8 +21,16 @@ module.exports = {
       { from: './public', to: './', ignore: './public/index.html' },
     ]),
     new HtmlWebpackPlugin({
+      filename: "index.html",
       template: './public/index.html',
     }),
+    ...fs.readdirSync("./public/pages").map(file => {
+      return new HtmlWebpackPlugin({
+        filename: file,
+        template: "./public/pages/" + file
+      })
+    }),
+    
   ],
 
   module: {
