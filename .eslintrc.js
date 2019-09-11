@@ -33,7 +33,6 @@ module.exports = {
         ignoreRegExpLiterals: true,
       },
     ],
-    'import/prefer-default-export': 0,
-    'no-var': 0,
+    'import/prefer-default-export': 0
   },
 };
