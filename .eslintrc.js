@@ -15,12 +15,9 @@ module.exports = {
   rules: {
     'no-restricted-syntax': 0,
     'no-console': 0,
-    'no-alert': 0,
     'no-plusplus': 0,
     'vars-on-top': 0,
     'func-names': 0,
-    'prefer-arrow-callback': 0,
-    'prefer-template': 0,
     'linebreak-style': 0,
     'max-len': [
       'error',
@@ -33,7 +30,6 @@ module.exports = {
         ignoreRegExpLiterals: true,
       },
     ],
-    'import/prefer-default-export': 0,
-    'no-var': 0,
+    'import/prefer-default-export': 0
   },
 };
