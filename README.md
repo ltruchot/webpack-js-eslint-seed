@@ -1,4 +1,4 @@
-# Webpack Javascript ESLint Seed
+# Webpack ESLint SASS Seed
 
 ## An empty project to begin pure JavaScript front-end coding out of the box
 
