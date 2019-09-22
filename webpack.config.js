@@ -8,6 +8,7 @@ const fs = require('fs');
 module.exports = {
   mode: 'development',
   entry: './src/index.js',
+  devtool: 'source-map',
 
   output: {
     filename: '[name].[chunkhash].js',
@@ -18,19 +19,20 @@ module.exports = {
     new CleanWebpackPlugin(),
     new webpack.ProgressPlugin(),
     new CopyPlugin([
-      { from: './public', to: './', ignore: ['./public/index.html', "pages/**/*"] },
+      {
+        from: './public',
+        to: './',
+        ignore: ['./public/index.html', 'pages/**/*'],
+      },
     ]),
     new HtmlWebpackPlugin({
-      filename: "index.html",
+      filename: 'index.html',
       template: './public/index.html',
     }),
-    ...fs.readdirSync("./public/pages").map(file => {
-      return new HtmlWebpackPlugin({
+    ...fs.readdirSync('./public/pages').map((file) => new HtmlWebpackPlugin({
         filename: file,
         template: "./public/pages/" + file
-      })
-    }),
-    
+      })),
   ],
 
   module: {
@@ -39,21 +41,21 @@ module.exports = {
         test: /\.scss$/,
         use: [
           'style-loader', // creates style nodes from JS strings
-          { 
-            loader: 'css-loader', 
-            options: { url: false }
+          {
+            loader: 'css-loader',
+            options: { url: false },
           }, // translates CSS into CommonJS
-          'sass-loader' // compiles Sass to CSS, using Node Sass by default
+          'sass-loader', // compiles Sass to CSS, using Node Sass by default
         ],
       },
       {
         // Now we apply rule for images
         test: /\.(png|jpe?g|gif|svg)$/,
-        loader: "file-loader"
-      },     
+        loader: 'file-loader',
+      },
       {
-         test: /\.(woff|woff2|eot|ttf|otf)$/,
-         use: 'file-loader'
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        use: 'file-loader',
       },
       {
         test: /.(js|jsx)$/,
