@@ -1,18 +1,25 @@
-const path = require('path');
-const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
-const fs = require('fs');
+const path = require("path");
+const webpack = require("webpack");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
+const fs = require("fs");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const FixStyleOnlyEntriesPlugin = require("webpack-fix-style-only-entries");
+
+const devMode = process.env.NODE_ENV !== "production";
 
 module.exports = {
-  mode: 'development',
-  entry: './src/index.js',
-  devtool: 'source-map',
+  mode: "development",
+  entry: {
+    main: "./src/index.js",
+    styles: ["./public/styles.scss"]
+  },
+  devtool: "source-map",
 
   output: {
-    filename: '[name].[chunkhash].js',
-    path: path.resolve(__dirname, 'dist'),
+    filename: "[name].[chunkhash].js",
+    path: path.resolve(__dirname, "dist")
   },
 
   plugins: [
@@ -20,62 +27,80 @@ module.exports = {
     new webpack.ProgressPlugin(),
     new CopyPlugin([
       {
-        from: './public',
-        to: './',
-        ignore: ['./public/index.html', 'pages/**/*'],
-      },
+        from: "./public",
+        to: "./",
+        ignore: [
+          "./public/index.html",
+          "./public/styles.scss",
+          "pages/**/*",
+          "styles/**/*"
+        ]
+      }
     ]),
     new HtmlWebpackPlugin({
-      filename: 'index.html',
-      template: './public/index.html',
+      filename: "index.html",
+      template: "./public/index.html"
     }),
-    ...fs.readdirSync('./public/pages').map((file) => new HtmlWebpackPlugin({
-        filename: file,
-        template: "./public/pages/" + file
-      })),
+    ...fs.readdirSync("./public/pages").map(
+      file =>
+        new HtmlWebpackPlugin({
+          filename: file,
+          template: "./public/pages/" + file
+        })
+    ),
+    new FixStyleOnlyEntriesPlugin(),
+    new MiniCssExtractPlugin({
+      // Options similar to the same options in webpackOptions.output
+      // both options are optional
+      filename: devMode ? "[name].css" : "[name].[hash].css",
+      chunkFilename: devMode ? "[id].css" : "[id].[hash].css"
+    })
   ],
 
   module: {
     rules: [
       {
-        test: /\.scss$/,
+        test: /\.(sa|sc|c)ss$/,
         use: [
-          'style-loader', // creates style nodes from JS strings
           {
-            loader: 'css-loader',
-            options: { url: false },
-          }, // translates CSS into CommonJS
-          'sass-loader', // compiles Sass to CSS, using Node Sass by default
-        ],
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              hmr: process.env.NODE_ENV === "development",
+              reloadAll: true
+            }
+          },
+          "css-loader",
+          "sass-loader"
+        ]
       },
       {
         // Now we apply rule for images
         test: /\.(png|jpe?g|gif|svg)$/,
-        loader: 'file-loader',
+        loader: "file-loader"
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
-        use: 'file-loader',
+        use: "file-loader"
       },
       {
         test: /.(js|jsx)$/,
-        include: [path.resolve(__dirname, 'src')],
-        loader: 'babel-loader',
+        include: [path.resolve(__dirname, "src")],
+        loader: "babel-loader",
 
         options: {
-          plugins: ['syntax-dynamic-import'],
+          plugins: ["syntax-dynamic-import"],
 
           presets: [
             [
-              '@babel/preset-env',
+              "@babel/preset-env",
               {
-                modules: false,
-              },
-            ],
-          ],
-        },
-      },
-    ],
+                modules: false
+              }
+            ]
+          ]
+        }
+      }
+    ]
   },
 
   optimization: {
@@ -83,18 +108,18 @@ module.exports = {
       cacheGroups: {
         vendors: {
           priority: -10,
-          test: /[\\/]node_modules[\\/]/,
-        },
+          test: /[\\/]node_modules[\\/]/
+        }
       },
 
-      chunks: 'async',
+      chunks: "async",
       minChunks: 1,
       minSize: 30000,
-      name: true,
-    },
+      name: true
+    }
   },
 
   devServer: {
-    open: true,
-  },
+    open: true
+  }
 };
