@@ -16,9 +16,8 @@ module.exports = {
     styles: ["./public/styles.scss"]
   },
   devtool: "source-map",
-
   output: {
-    filename: "[name].[chunkhash].js",
+    filename: "[name].js",
     path: path.resolve(__dirname, "dist")
   },
 
@@ -120,6 +119,13 @@ module.exports = {
   },
 
   devServer: {
-    open: true
+    open: true,
+    disableHostCheck: true,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+      "Access-Control-Allow-Headers":
+        "X-Requested-With, content-type, Authorization"
+    }
   }
 };
