@@ -1,12 +1,10 @@
-# Webpack ESLint SASS Seed
+# Webpack Seed evergreen for JavaScript and SASS
 
-## An empty project to begin pure JavaScript front-end coding out of the box
+## This is an empty project to begin pure JavaScript + Sass front-end coding out of the box
 
 NPM Last updated: Sept. 2019
 
-This is a clean and classic webpack-javascript-eslint seed, with Babel for ES6+ and Airbnb for Lint rules.
-
-This branch contains sass + file loader as well
+Clean and classic webpack + eslint (airbnb rules) + babel + file loader scaffolding for real world ES6+ project.
 
 `npm install` at your first use, then
 
@@ -16,7 +14,7 @@ This branch contains sass + file loader as well
 
 ## index.js and other JS sources in "src" folder
 
-`./src/index.js` is the entry point for your ES6+ JavaScript. Scaffold your JS app sources in `./src` and import/export what you need, with `./src` as implicit root.
+`./src/index.js` is the entry point for your ES6+ JavaScript. Scaffold your JS app sources in `./src` and import/export what you need.
 
 _Example: if function `add` is exported in file `./src/helpers/example.js` import it as `import { add } from "./helpers/example"` in `index.js`._
 
