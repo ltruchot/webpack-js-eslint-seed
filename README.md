@@ -1,10 +1,14 @@
+# DEPRECATED
+
+New seed repository, with consistent name: https://github.com/ltruchot/webpack-seed-js-sass
+
 # Webpack Seed evergreen for JavaScript and SASS
 
 ## This is an empty project to begin pure JavaScript + Sass front-end coding out of the box
 
 NPM Last updated: Sept. 2019
 
-Clean and classic webpack + eslint (airbnb rules) + babel + file loader scaffolding for real world ES6+ project.
+Clean and classic webpack + eslint (airbnb rules) + babel + file loader scaffolding for real world ES6+ projects.
 
 `npm install` at your first use, then
 
@@ -18,11 +22,13 @@ Clean and classic webpack + eslint (airbnb rules) + babel + file loader scaffold
 
 _Example: if function `add` is exported in file `./src/helpers/example.js` import it as `import { add } from "./helpers/example"` in `index.js`._
 
-## index.html
+## index.html and other HTML pages
 
-Webpack bundle every JavaScript from `./src` and `./node_modules` in your final dist a main.js file, and load it automatically.
+Webpack bundle every JavaScript from `./src` and used `./node_modules` in your final dist a main.js file, and load it automatically.
 
 Nevertheless, you can change what you want in its template `./public/index.html`, if you need a CDN link for example.
+
+You can add any new static html page in `./public/pages` and they will share the same CSS and scripts than `index.html`
 
 ## Assets
 
